@@ -18,8 +18,8 @@ local buf_name_to_file_path_map = {}
 
 vim.api.nvim_create_autocmd("BufDelete", {
   pattern = "*",
-  callback = function()
-    local buf_name = vim.api.nvim_buf_get_name(0)
+  callback = function(ev)
+    local buf_name = vim.api.nvim_buf_get_name(ev.buf)
     buf_name_to_file_path_map[buf_name] = nil
   end,
 })
