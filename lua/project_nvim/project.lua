@@ -16,6 +16,7 @@ M.last_project = nil
 ---@type table<buf_name, buf_file_location>
 local buf_name_to_file_path_map = {}
 
+---@param ev? vim.api.keyset.create_autocmd
 vim.api.nvim_create_autocmd("BufDelete", {
   pattern = "*",
   callback = function(ev)
